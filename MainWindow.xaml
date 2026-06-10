@@ -1,0 +1,44 @@
+<Window x:Class="AmalurBxmlConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="KoA:RR Advanced BXML Suite" Height="420" Width="600"
+        Background="#1E1E1E" Foreground="White" SnapsToDevicePixels="True"
+        AllowDrop="True" DragOver="Window_DragOver" Drop="Window_Drop">
+    
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header and Symbol Settings -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,15">
+            <TextBlock Text="Kingdoms of Amalur: Re-Reckoning BXML Suite" FontSize="18" FontWeight="Bold" Foreground="#4FC1FF" Margin="0,0,0,5"/>
+            <TextBlock Text="Drag and Drop a .bxml or .xml file anywhere on this window to run compilation." FontSize="11" Foreground="#AAAAAA" Margin="0,0,0,10"/>
+            
+            <Label Content="Symbol Table (CSV) Directory:" Foreground="White" Padding="0,5"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="TxtCsvPath" Grid.Column="0" Background="#2D2D2D" Foreground="White" BorderBrush="#555555" Padding="5" VerticalContentAlignment="Center"/>
+                <Button x:Name="BtnBrowseCsv" Grid.Column="1" Content="Browse" Width="80" Margin="5,0,0,0" Background="#3E3E42" Foreground="White" BorderThickness="0" Click="BtnBrowseCsv_Click"/>
+            </Grid>
+        </StackPanel>
+
+        <!-- Drop Zone Area -->
+        <Border Grid.Row="1" BorderBrush="#555555" BorderThickness="2" CornerRadius="5" Background="#252526" Margin="0,5">
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock x:Name="TxtStatusMain" Text="Database is loading..." FontSize="16" Foreground="#9CDCFE" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBlock x:Name="TxtStatusSub" Text="Please choose your symbol tables folder." FontSize="11" Foreground="#888888" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Log Area -->
+        <TextBox x:Name="TxtLog" Grid.Row="2" Height="80" Margin="0,10,0,0" Background="#121212" Foreground="#85C46C" BorderBrush="#333333" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" FontFamily="Consolas" FontSize="11" Padding="5"/>
+    </Grid>
+</Window>
